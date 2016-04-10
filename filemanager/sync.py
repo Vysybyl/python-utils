@@ -1,6 +1,7 @@
 from os import listdir, mkdir,remove
 from os.path import isfile, join, exists, isdir
 from shutil import rmtree
+import sys
 
 
 def sync(frompath, topath):
@@ -41,3 +42,10 @@ def __recursive_sync(frompath, topath):
 
 def __log(line):
     print(line)
+
+if __name__ == "__main__":
+    args = sys.argvs
+    if len(args) <3:
+        print("This script requires 2 arguments!")
+    else:
+        synch(args[1],args[2])
