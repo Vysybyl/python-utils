@@ -18,10 +18,11 @@ def __recursive_sync(frompath, topath):
                 cnt = cnt + 1
                 __log("Creating new file " + join(topath,f))
             destinationfile = open(join(topath,f),"w+");
-            if sourcefile.read() != destinationfile.read():
+            source = sourcefile.read()
+            if source != destinationfile.read():
                 __log("Updating " + join(topath,f))
                 cnt = cnt + 1
-                destinationfile.write(sourcefile.read())
+                destinationfile.write(source)
             sourcefile.close()
             destinationfile.close()
         elif isdir(join(frompath,f)):
